@@ -7,6 +7,8 @@
   --sixth-color: #afb1b8;
   --main-font: "Roboto", sans-serif;
   --secondary-font: "Raleway", sans-serif;
+  --dur: 250ms;
+  --tim-fun: cubic-bezier(0.4, 0, 0.2, 1);
 }
 h1,
 h2,
@@ -92,7 +94,9 @@ body {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  transition: background-color 2500ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: background-color;
+  transition-duration: var(--dur);
+  transition-timing-function: var(--tim-fun);
 }
 
 .social-list-link:hover,
@@ -103,7 +107,9 @@ body {
   width: 20px;
   height: 20px;
   fill: var(--sixth-color);
-  transition: fill 2500ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: fill;
+  transition-duration: var(--dur);
+  transition-timing-function: var(--tim-fun);
 }
 
 .social-list-link:hover .social-list-icon,
@@ -144,14 +150,13 @@ body {
 .contacts-list-icon {
   margin-right: 10px;
   fill: currentColor;
+  transition-property: fill;
+  transition-duration: var(--dur);
+  transition-timing-function: var(--tim-fun);
 }
 
 .mail-link:hover .contacts-list-icon,
 .mail-link:focus .contacts-list-icon {
-  fill: var(--accent-color);
-}
-.contacts-item:hover,
-.contacts-item:focus {
   fill: var(--accent-color);
 }
 
@@ -159,10 +164,7 @@ body {
 .tel-link:focus .contacts-list-icon {
   fill: var(--accent-color);
 }
-.contacts-item:hover,
-.contacts-item:focus {
-  fill: var(--accent-color);
-}
+
 .logo-link {
   font-family: Raleway;
   font-weight: 700;
@@ -181,7 +183,14 @@ body {
 
 .menu-link {
   color: var(--third-color);
-  transition: color 2500ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: color;
+  transition-duration: var(--dur);
+  transition-timing-function: var(--tim-fun);
+}
+.address-map {
+  transition-property: color;
+  transition-duration: var(--dur);
+  transition-timing-function: var(--tim-fun);
 }
 
 .menu-link:hover,
@@ -189,20 +198,20 @@ body {
 .address-map:hover,
 .address-map:focus {
   color: var(--accent-color);
-  transition: color 2500ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .mail-link,
 .tel-link,
 .contacts-list-icon {
   color: var(--secondary-color);
-  transition: color 2500ms cubic-bezier(0.4, 0, 0.2, 1),
-    fill 2500ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .mail-link,
 .tel-link {
   display: flex;
   align-items: center;
+  transition-property: color;
+  transition-duration: var(--dur);
+  transition-timing-function: var(--tim-fun);
 }
 
 .tel-link:hover,
@@ -388,8 +397,8 @@ body {
   height: 60px;
   fill: var(--sixth-color);
   transition-property: fill;
-  transition-duration: 2500ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: var(--dur);
+  transition-timing-function: var(--tim-fun);
 }
 .customers-list {
   display: flex;
@@ -405,8 +414,8 @@ body {
   box-sizing: border-box;
   border-radius: 4px;
   transition-property: border-color;
-  transition-duration: 2500ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: var(--dur);
+  transition-timing-function: var(--tim-fun);
 }
 .customers-list-link:hover,
 .customers-list-link:focus {
@@ -501,6 +510,9 @@ body {
   border-radius: 4px;
   border: none;
   padding: 6px 22px;
+  transition-property: background-color, color, box-shadow;
+  transition-duration: var(--dur);
+  transition-timing-function: var(--tim-fun);
 }
 
 .filter-btn:hover,
@@ -541,6 +553,9 @@ body {
 }
 .projects-list-link-wrapper {
   display: block;
+  transition-property: box-shadow;
+  transition-duration: var(--dur);
+  transition-timing-function: var(--tim-fun);
 }
 .projects-list-link-wrapper:hover,
 .projects-list-link-wrapper:focus {
@@ -570,9 +585,61 @@ body {
   width: 100%;
   overflow: auto;
   transform: translateY(100%);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: transform;
+  transition-duration: var(--dur);
+  transition-timing-function: var(--tim-fun);
 }
 .projects-list-link-wrapper:hover .overlay,
 .projects-list-link-wrapper:focus .overlay {
   transform: translateY(0%);
 }
+/*====END PORTFOLIO====*/
+
+/*====MODAL WINDOW====*/
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  transition: opacity var(--dur) var(--tim-fun),
+    visibility var(--dur) var(--tim-fun);
+}
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0.8);
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 528px;
+  height: 580px;
+  background-color: var(--fourth-color);
+  border-radius: 4px;
+  transform: translate(-50%, -50%) scale(1);
+  transition-property: transform;
+  transition-duration: var(--dur);
+  transition-timing-function: var(--tim-fun);
+}
+.modal-close-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+}
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/*====END MODAL WINDOW====*/
