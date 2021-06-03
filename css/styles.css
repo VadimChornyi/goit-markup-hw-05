@@ -5,6 +5,9 @@
   --fourth-color: #ffffff;
   --fifth-color: #2f303a;
   --sixth-color: #afb1b8;
+  --seventh-color: #f5f4fa;
+  --eighth-color: #ececec;
+  --ninth-color: #eeeeee;
   --main-font: "Roboto", sans-serif;
   --secondary-font: "Raleway", sans-serif;
   --dur: 250ms;
@@ -122,7 +125,7 @@ body {
 .header {
   padding-top: 24px;
   padding-bottom: 24px;
-  border-bottom: 1px solid #ececec;
+  border-bottom: 1px solid var(--eighth-color);
 }
 .header-container {
   display: flex;
@@ -315,9 +318,9 @@ body {
 .icon-container {
   height: 120px;
   margin-bottom: 30px;
-  background: #f5f4fa;
+  background: var(--seventh-color);
   border: 4px solid;
-  border-color: #f5f4fa;
+  border-color: var(--seventh-color);
   border-radius: 4px;
   display: flex;
   justify-content: center;
@@ -341,16 +344,35 @@ body {
 }
 
 .working-img-list-item {
+  position: relative;
   flex-basis: calc((100%-90px) / 3);
   margin-left: 30px;
   margin-top: 30px;
+}
+
+.activity {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+
+  background: rgba(47, 48, 58, 0.8);
+
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 27px 0;
+  color: var(--fourth-color);
 }
 
 /*==========ENDWORKING========== */
 
 /*==========TEAM==========*/
 .team {
-  background: #f5f4fa;
+  background: var(--seventh-color);
 }
 
 .team-list {
@@ -362,7 +384,7 @@ body {
   flex-basis: calc((100%-120px) / 4);
   margin-left: 30px;
   margin-top: 30px;
-  background: #ffffff;
+  background: var(--fourth-color);
   /* material shadow v1 */
 
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
@@ -410,7 +432,7 @@ body {
   align-items: center;
   width: 170px;
   height: 92px;
-  border: 1px solid #afb1b8;
+  border: 1px solid var(--sixth-color);
   box-sizing: border-box;
   border-radius: 4px;
   transition-property: border-color;
@@ -506,7 +528,7 @@ body {
   line-height: 1.63;
   text-align: center;
   letter-spacing: 0.03em;
-  background: #f5f4fa;
+  background: var(--seventh-color);
   border-radius: 4px;
   border: none;
   padding: 6px 22px;
@@ -564,7 +586,7 @@ body {
 }
 .card-content {
   padding: 20px 24px;
-  border: 1px solid #eeeeee;
+  border: 1px solid var(--ninth-color);
 }
 .projects-list-img-wrapper {
   position: relative;
@@ -635,11 +657,17 @@ body {
   border-radius: 50%;
   cursor: pointer;
   padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .is-hidden {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+}
+.icon-close {
+  padding: 4px 4px;
 }
 
 /*====END MODAL WINDOW====*/
